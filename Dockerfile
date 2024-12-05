@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 # 로케일 언어 설정
 RUN apt-get update && apt-get install -y locales
 RUN localedef -f UTF-8 -i ko_KR ko_KR.UTF-8
-ENV LC_ALL ko_KR.UTF-8
+ENV LC_ALL=ko_KR.UTF-8
 
 # 시간대 설정
 ENV TZ=Asia/Seoul

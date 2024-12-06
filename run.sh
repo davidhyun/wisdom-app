@@ -25,5 +25,5 @@ docker run -d \
     --log-driver json-file \
     --log-opt max-size=10m \
     --log-opt max-file=5 \
-    -p 80:8000 \
+    -p 8000:8000 \
     $IMAGE_NAME

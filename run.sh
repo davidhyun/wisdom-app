@@ -16,7 +16,7 @@ fi
 
 # 도커 컨테이너 실행
 docker run -d \
-    --name wisdom-app \
+    --name wisdom-app-server \
     --network wisdom-app-net \
     -p 8000:8000 \
     -v $(pwd):/usr/src/app \

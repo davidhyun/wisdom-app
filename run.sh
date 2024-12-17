@@ -17,13 +17,14 @@ fi
 # 도커 컨테이너 실행
 docker run -d \
     --name wisdom-app \
+    --network wisdom-app-net \
+    -p 8000:8000 \
+    -v $(pwd):/usr/src/app \
     -e ENV=$ENV \
     --env-file .env \
     --restart unless-stopped \
-    -v $(pwd):/usr/src/app \
     -w /usr/src/app \
     --log-driver json-file \
     --log-opt max-size=10m \
     --log-opt max-file=5 \
-    -p 8000:8000 \
     $IMAGE_NAME

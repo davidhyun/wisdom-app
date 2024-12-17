@@ -1,13 +1,18 @@
-import uvicorn
-from apps.app import create_app
+from fastapi import FastAPI
 from apps.config import Settings
+from apps.quote import view
+
+def create_app(settings: Settings):
+    app = FastAPI(
+        title=settings.PROJECT_NAME,
+        description=settings.DESCRIPTION,
+        docs_url="/docs"
+    )
+    
+    app.include_router(view.router)
+    
+    return app
+
 
 settings = Settings()
 app = create_app(settings)
-
-
-if __name__ == "__main__":
-    if settings.ENV == "dev":
-        uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-    else:
-        uvicorn.run("main:app", host="0.0.0.0", port=8000)

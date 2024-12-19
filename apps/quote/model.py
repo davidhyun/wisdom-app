@@ -4,7 +4,7 @@ from sqlmodel import SQLModel, Field
 class Authors(SQLModel, table=True):
     author_id: int = Field(primary_key=True)
     author_name: str
-    author_tile: str
+    author_title: str
     author_desc: str
     birth_year: int
     death_year: int
